@@ -110,11 +110,11 @@ const Tasks = () => {
       <div className="tasks-list">
         <h1 className="tasks-title">All Tasks</h1>
         <ul className="task-list">
-          {tasks.map(task => (
-            <li key={task._id} className="task-item">
+          {tasks?.map(task => (
+            <li key={task?._id} className="task-item">
               <div>
-                <h3 className="task-title">{task.title}</h3>
-                <p className="task-description">Описание: {task.description}. Статус: {task.completed ? "Выполенно" : "Не выполнено"}</p>
+                <h3 className="task-title">{task?.title}</h3>
+                <p className="task-description">Описание: {task ? task.description : 'описание отсутствует'}. Статус: {task?.completed ? "Выполенно" : "Не выполнено"}</p>
               </div>
               <button onClick={() => handleDeleteTask(task._id)} className="delete-task-button">Delete</button>
             </li>
